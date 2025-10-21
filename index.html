@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceket Coffee - Premium Coffee Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <span class="notification-message">Selamat datang di Ceket Coffee!</span>
+            <button class="notification-close" id="notification-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="coffe.jpg" alt="Ceket Coffee Logo">
+                <span>Ceket Coffee</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#testimoni">Testimoni</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <a href="#" class="order-btn">Pesan via WhatsApp</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Ceket Coffee Logo">
+                <span>Ceket Coffee</span>
+            </div>
+            <button class="sidebar-close" id="sidebar-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#testimoni">Testimoni</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+        <a href="#" class="sidebar-order-btn">Pesan via WhatsApp</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+            <h1>Ceket Coffee</h1>
+            <p>Premium coffee experience dengan berbagai varian specialty coffee pilihan terbaik. Nikmati cita rasa kopi berkualitas tinggi yang memanjakan setiap tegukan.</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">Lihat Menu</a>
+                <a href="#kontak" class="btn btn-secondary">Pesan Sekarang</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2 class="section-title fade-in">Menu Coffee Spesial Kami</h2>
+            <p class="section-subtitle fade-in">Nikmati berbagai varian coffee specialty dengan kualitas premium dan cita rasa yang tak terlupakan</p>
+            
+            <div class="menu-grid">
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">
+                        <img src="expreso.jpeg" alt="Espresso Classic">
+                    </div>
+                    <h3>Espresso Classic</h3>
+                    <div class="price">Rp 15.000</div>
+                    <p>Shot espresso murni dengan ekstraksi sempurna. Cita rasa kopi yang bold dan rich, perfect untuk para pecinta kopi sejati yang menginginkan pengalaman autentik.</p>
+                    <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+                </div>
+
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">
+                        <img src="capucino.jpeg" alt="Cappuccino Signature">
+                    </div>
+                    <h3>Cappuccino Signature</h3>
+                    <div class="price">Rp 18.000</div>
+                    <p>Perpaduan sempurna espresso dengan steamed milk dan foam yang creamy. Dilengkapi latte art cantik yang instagramable dan rasa yang memanjakan.</p>
+                    <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+                </div>
+
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">
+                        <img src="iced.jpeg" alt="Iced Coffee Special">
+                    </div>
+                    <h3>Iced Coffee Special</h3>
+                    <div class="price">Rp 16.000</div>
+                    <p>Cold brew coffee dengan es batu yang menyegarkan. Cocok untuk cuaca panas, memberikan sensasi dingin yang nikmat dengan rasa kopi yang tetap strong.</p>
+                    <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+                </div>
+
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Caramel Macchiato">
+                    </div>
+                    <h3>Caramel Macchiato</h3>
+                    <div class="price">Rp 20.000</div>
+                    <p>Espresso dengan steamed milk, vanilla syrup dan caramel drizzle. Kombinasi manis dan pahit yang harmonis, topped dengan foam yang lembut dan creamy.</p>
+                    <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+                </div>
+
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">
+                        <img src="icedmocha.jpg" alt="Mocha Delight">
+                    </div>
+                    <h3>Mocha Delight</h3>
+                    <div class="price">Rp 19.000</div>
+                    <p>Perpaduan espresso, coklat premium, dan steamed milk yang creamy. Topped dengan whipped cream dan chocolate shavings untuk pengalaman rasa yang indulgent.</p>
+                    <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+                </div>
+
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Flat White Premium">
+                    </div>
+                    <h3>Flat White Premium</h3>
+                    <div class="price">Rp 17.000</div>
+                    <p>Double shot espresso dengan microfoam milk yang velvet. Tekstur yang smooth dan creamy dengan rasa kopi yang balanced, favorit para coffee enthusiast.</p>
+                    <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimoni">
+        <div class="container">
+            <h2 class="section-title fade-in">Apa Kata Mereka</h2>
+            <p class="section-subtitle fade-in">Pengalaman pelanggan kami setelah menikmati coffee specialty terbaik</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial fade-in">
+                    <div class="testimonial-header">
+                        <div class="testimonial-author">
+                            <div class="author-initial">B</div>
+                            <div class="author-info">
+                                <span class="author-name">Budi Santoso</span>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        Cappuccino signature nya benar-benar luar biasa! Latte art yang cantik dan rasa yang perfect balance. Jadi tempat favorit saya untuk ngopi.
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="testimonial-header">
+                        <div class="testimonial-author">
+                            <div class="author-initial">A</div>
+                            <div class="author-info">
+                                <span class="author-name">Ani Wijaya</span>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        Sudah jadi langganan keluarga kami. Caramel macchiato selalu jadi pilihan utama. Pelayanan ramah dan suasana cozy banget!
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="testimonial-header">
+                        <div class="testimonial-author">
+                            <div class="author-initial">C</div>
+                            <div class="author-info">
+                                <span class="author-name">Citra Dewi</span>
+                                <div class="stars">★★★★☆</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        Iced coffee special nya sangat menyegarkan! Perfect untuk cuaca Jakarta yang panas. Harga juga reasonable untuk kualitas premium.
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="testimonial-header">
+                        <div class="testimonial-author">
+                            <div class="author-initial">D</div>
+                            <div class="author-info">
+                                <span class="author-name">Doni Prasetyo</span>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        Barista yang handal! Espresso classic nya strong dan rich, exactly how I like it. Highly recommended untuk coffee lovers sejati.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="kontak">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--cream)">Hubungi Kami</h2>
+            <p class="section-subtitle" style="color: var(--dark-cream)">Ingin memesan atau bertanya? Jangan ragu untuk menghubungi kami!</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>📍 Informasi Lokasi</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">🏠</div>
+                        <div>
+                            <strong>Alamat:</strong><br>
+                            Jl. Heulang, RT.06/RW.04, Tanah Sareal,<br>
+                            Kec. Tanah Sareal, Kota Bogor, Jawa Barat 16161
+                        </div>
+                    </div>
+                    <div class="contact-map">
+                    <h3>Lokasi Kami</h3>
+                    <div class="map-container">
+                        <iframe allowfullscreen="" height="100%" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d106.82751531529438!3d-6.597966966312254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5f31c8b3d0d%3A0x7e9b9c7b0a7b3b3b!2sBogor%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1647851554785!5m2!1sen!2sid" style="border:0;" width="100%"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <div class="contact-info fade-in">
+                    <h3>📞 Kontak & Pemesanan</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <strong>WhatsApp:</strong><br>
+                            +62 896-8219-6484
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong>Email:</strong><br>
+                            ceketcoffee@gmail.com
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-info fade-in">
+                    <h3>🕐 Jam Operasional</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <strong>Buka Setiap Hari:</strong><br>
+                            Senin - Minggu: 14:00 - 17:00 WIB<br>
+                            <small style="color: var(--dark-cream)">Tutup hari libur nasional</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://wa.me/6285159092232" class="btn btn-primary" style="font-size: 1.2rem; padding: 1rem 2.5rem;">
+                    📱 Hubungi via WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ceket Coffee. Semua Hak Dilindungi.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--dark-cream);">
+                Dibuat dengan ❤️ untuk pecinta coffee specialty di seluruh Indonesia
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
