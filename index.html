@@ -34,7 +34,13 @@
                 <li><a href="#testimoni">Testimoni</a></li>
                 <li><a href="#kontak">Kontak</a></li>
             </ul>
-            <a href="#" class="order-btn">Pesan via WhatsApp</a>
+            <div class="nav-actions">
+                <a href="#" class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="https://wa.me/6285159092232?text=Halo! Saya ingin memesan kopi dari Ceket Coffee." class="order-btn" target="_blank">Pesan via WhatsApp</a>
+            </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -43,11 +49,34 @@
         </nav>
     </header>
 
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Keranjang Pesanan</h3>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart" id="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Keranjang masih kosong</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">Rp 0</span>
+            </div>
+            <button class="btn btn-primary checkout-btn" id="checkout-btn">Checkout via WhatsApp</button>
+        </div>
+    </div>
+
     <!-- Mobile Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Ceket Coffee Logo">
+                <img src="coffe.jpg" alt="Ceket Coffee Logo">
                 <span>Ceket Coffee</span>
             </div>
             <button class="sidebar-close" id="sidebar-close">
@@ -60,8 +89,17 @@
             <li><a href="#testimoni">Testimoni</a></li>
             <li><a href="#kontak">Kontak</a></li>
         </ul>
-        <a href="#" class="sidebar-order-btn">Pesan via WhatsApp</a>
+        <div class="sidebar-actions">
+            <a href="#" class="sidebar-cart-btn" id="sidebar-cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Keranjang (<span class="cart-count">0</span>)
+            </a>
+            <a href="https://wa.me/6285159092232?text=Halo! Saya ingin memesan kopi dari Ceket Coffee." class="sidebar-order-btn" target="_blank">Pesan via WhatsApp</a>
+        </div>
     </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
 
     <!-- Hero Section -->
     <section class="hero" id="beranda">
@@ -87,62 +125,32 @@
             <div class="menu-grid">
                 <div class="menu-item fade-in">
                     <div class="menu-item-image">
-                        <img src="expreso.jpeg" alt="Espresso Classic">
+                        <img src="expreso.jpeg" alt="Espresso Classic" onerror="this.src='https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
                     </div>
                     <h3>Espresso Classic</h3>
                     <div class="price">Rp 15.000</div>
                     <p>Shot espresso murni dengan ekstraksi sempurna. Cita rasa kopi yang bold dan rich, perfect untuk para pecinta kopi sejati yang menginginkan pengalaman autentik.</p>
-                    <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+                    <button class="btn btn-primary add-to-cart" data-name="Espresso Classic" data-price="15000">Tambah ke Keranjang</button>
                 </div>
 
                 <div class="menu-item fade-in">
                     <div class="menu-item-image">
-                        <img src="capucino.jpeg" alt="Cappuccino Signature">
+                        <img src="capucino.jpeg" alt="Cappuccino Signature" onerror="this.src='https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
                     </div>
                     <h3>Cappuccino Signature</h3>
                     <div class="price">Rp 18.000</div>
                     <p>Perpaduan sempurna espresso dengan steamed milk dan foam yang creamy. Dilengkapi latte art cantik yang instagramable dan rasa yang memanjakan.</p>
-                    <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+                    <button class="btn btn-primary add-to-cart" data-name="Cappuccino Signature" data-price="18000">Tambah ke Keranjang</button>
                 </div>
 
                 <div class="menu-item fade-in">
                     <div class="menu-item-image">
-                        <img src="iced.jpeg" alt="Iced Coffee Special">
+                        <img src="iced.jpeg" alt="Iced Coffee Special" onerror="this.src='https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
                     </div>
                     <h3>Iced Coffee Special</h3>
                     <div class="price">Rp 16.000</div>
                     <p>Cold brew coffee dengan es batu yang menyegarkan. Cocok untuk cuaca panas, memberikan sensasi dingin yang nikmat dengan rasa kopi yang tetap strong.</p>
-                    <a href="#" class="btn btn-primary">Pesan Sekarang</a>
-                </div>
-
-                <div class="menu-item fade-in">
-                    <div class="menu-item-image">
-                        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Caramel Macchiato">
-                    </div>
-                    <h3>Caramel Macchiato</h3>
-                    <div class="price">Rp 20.000</div>
-                    <p>Espresso dengan steamed milk, vanilla syrup dan caramel drizzle. Kombinasi manis dan pahit yang harmonis, topped dengan foam yang lembut dan creamy.</p>
-                    <a href="#" class="btn btn-primary">Pesan Sekarang</a>
-                </div>
-
-                <div class="menu-item fade-in">
-                    <div class="menu-item-image">
-                        <img src="icedmocha.jpg" alt="Mocha Delight">
-                    </div>
-                    <h3>Mocha Delight</h3>
-                    <div class="price">Rp 19.000</div>
-                    <p>Perpaduan espresso, coklat premium, dan steamed milk yang creamy. Topped dengan whipped cream dan chocolate shavings untuk pengalaman rasa yang indulgent.</p>
-                    <a href="#" class="btn btn-primary">Pesan Sekarang</a>
-                </div>
-
-                <div class="menu-item fade-in">
-                    <div class="menu-item-image">
-                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Flat White Premium">
-                    </div>
-                    <h3>Flat White Premium</h3>
-                    <div class="price">Rp 17.000</div>
-                    <p>Double shot espresso dengan microfoam milk yang velvet. Tekstur yang smooth dan creamy dengan rasa kopi yang balanced, favorit para coffee enthusiast.</p>
-                    <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+                    <button class="btn btn-primary add-to-cart" data-name="Iced Coffee Special" data-price="16000">Tambah ke Keranjang</button>
                 </div>
             </div>
         </div>
@@ -221,64 +229,83 @@
     <!-- Contact Section -->
     <section class="contact" id="kontak">
         <div class="container">
-            <h2 class="section-title" style="color: var(--cream)">Hubungi Kami</h2>
-            <p class="section-subtitle" style="color: var(--dark-cream)">Ingin memesan atau bertanya? Jangan ragu untuk menghubungi kami!</p>
+            <h2 class="section-title">Hubungi Kami</h2>
+            <p class="section-subtitle">Ingin memesan atau bertanya? Jangan ragu untuk menghubungi kami!</p>
             
             <div class="contact-grid">
                 <div class="contact-info fade-in">
-                    <h3>📍 Informasi Lokasi</h3>
+                    <h3>📍 Informasi Kontak</h3>
                     <div class="contact-item">
                         <div class="contact-icon">🏠</div>
                         <div>
-                            <strong>Alamat:</strong><br>
-                            Jl. Heulang, RT.06/RW.04, Tanah Sareal,<br>
-                            Kec. Tanah Sareal, Kota Bogor, Jawa Barat 16161
+                            <strong>Alamat</strong><br>
+                            JL Heulang, RT.06/RW.04, Tanah Sereal,<br>
+                            Kec. Tanah Sereal, Kota Bogor, Jawa Barat 16161
                         </div>
                     </div>
-                    <div class="contact-map">
-                    <h3>Lokasi Kami</h3>
-                    <div class="map-container">
-                        <iframe allowfullscreen="" height="100%" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d106.82751531529438!3d-6.597966966312254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5f31c8b3d0d%3A0x7e9b9c7b0a7b3b3b!2sBogor%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1647851554785!5m2!1sen!2sid" style="border:0;" width="100%"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-                <div class="contact-info fade-in">
-                    <h3>📞 Kontak & Pemesanan</h3>
                     <div class="contact-item">
                         <div class="contact-icon">📱</div>
                         <div>
-                            <strong>WhatsApp:</strong><br>
-                            +62 896-8219-6484
+                            <strong>Telepon/WhatsApp</strong><br>
+                            +62 851-5909-2232
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">✉️</div>
                         <div>
-                            <strong>Email:</strong><br>
-                            ceketcoffee@gmail.com
+                            <strong>Email</strong><br>
+                            tansupemuda@gmail.com
                         </div>
                     </div>
-                </div>
-
-                <div class="contact-info fade-in">
-                    <h3>🕐 Jam Operasional</h3>
                     <div class="contact-item">
                         <div class="contact-icon">⏰</div>
                         <div>
-                            <strong>Buka Setiap Hari:</strong><br>
-                            Senin - Minggu: 14:00 - 17:00 WIB<br>
-                            <small style="color: var(--dark-cream)">Tutup hari libur nasional</small>
+                            <strong>Jam Operasional</strong><br>
+                            Kamis : 14:00 - 17:00
+                        </div>
+                    </div>
+                    <div class="contact-action">
+                        <a href="https://wa.me/6285159092232?text=Halo! Saya ingin memesan kopi dari Ceket Coffee." class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Hubungi via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-map fade-in">
+                    <h3>📍 Lokasi Kami</h3>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d106.82751531529438!3d-6.597966966312254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5f31c8b3d0d%3A0x7e9b9c7b0a7b3b3b!2sBogor%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1647851554785!5m2!1sen!2sid" 
+                            width="100%" 
+                            height="300" 
+                            style="border:0; border-radius: 10px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="location-info">
+                        <h4>Taman Heulang</h4>
+                        <p>Lingkungan yang lebih besar</p>
+                        <div class="nearby-places">
+                            <div class="place">
+                                <strong>Taman Heulang</strong>
+                                <span>KOPI KLAN · Beo</span>
+                            </div>
+                            <div class="place">
+                                <strong>Coffee Play</strong>
+                                <span>PLOUTOS</span>
+                            </div>
+                            <div class="place">
+                                <strong>Coffee Oncing</strong>
+                                <span>Guru / Fir</span>
+                            </div>
+                        </div>
+                        <div class="copyright">
+                            <p>©2023 · Pertiyanaka</p>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="https://wa.me/6285159092232" class="btn btn-primary" style="font-size: 1.2rem; padding: 1rem 2.5rem;">
-                    📱 Hubungi via WhatsApp
-                </a>
             </div>
         </div>
     </section>
@@ -295,4 +322,4 @@
 
     <script src="script.js"></script>
 </body>
-</html>
+    </html>
