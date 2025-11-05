@@ -11,24 +11,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loading-screen">
-        <div class="loading-content">
-            <div class="coffee-cup">
-                <div class="cup">
-                    <div class="coffee"></div>
-                </div>
-                <div class="plate"></div>
-            </div>
-            <h2>Ceket Coffee</h2>
-            <p>Menyeduh kebahagiaan dalam setiap cangkir</p>
-        </div>
-    </div>
-
     <!-- Notification -->
     <div class="notification" id="notification">
         <div class="notification-content">
-            <span class="notification-message">✨ Selamat datang di Ceket Coffee! Dapatkan diskon 10% untuk pembelian pertama</span>
+            <span class="notification-message">Selamat datang di Ceket Coffee!</span>
             <button class="notification-close" id="notification-close">
                 <i class="fas fa-times"></i>
             </button>
@@ -39,9 +25,7 @@
     <header>
         <nav>
             <div class="logo">
-                <div class="logo-placeholder">
-                    <i class="fas fa-coffee"></i>
-                </div>
+                <img src="coffe.jpg" alt="Ceket Coffee Logo">
                 <span>Ceket Coffee</span>
             </div>
             <ul class="nav-links">
@@ -55,7 +39,7 @@
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">0</span>
                 </a>
-                <a href="https://wa.me/6281287358494?text=Halo! Saya ingin memesan kopi dari Ceket Coffee." class="order-btn" target="_blank">Pesan Sekarang</a>
+                <a href="https://wa.me/6281287358494?text=Halo! Saya ingin memesan kopi dari Ceket Coffee." class="order-btn" target="_blank">Pesan via WhatsApp</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -92,9 +76,7 @@
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo">
-                <div class="logo-placeholder">
-                    <i class="fas fa-coffee"></i>
-                </div>
+                <img src="coffe.jpg" alt="Ceket Coffee Logo">
                 <span>Ceket Coffee</span>
             </div>
             <button class="sidebar-close" id="sidebar-close">
@@ -122,8 +104,8 @@
     <!-- Hero Section -->
     <section class="hero" id="beranda">
         <div class="hero-content">
-            <h1 class="hero-title">Ceket Coffee</h1>
-            <p class="hero-subtitle">Premium coffee experience dengan berbagai varian specialty coffee pilihan terbaik. Nikmati cita rasa kopi berkualitas tinggi yang memanjakan setiap tegukan.</p>
+            <h1>Ceket Coffee</h1>
+            <p>Premium coffee experience dengan berbagai varian specialty coffee pilihan terbaik. Nikmati cita rasa kopi berkualitas tinggi yang memanjakan setiap tegukan.</p>
             <div class="hero-buttons">
                 <a href="#menu" class="btn btn-primary">Lihat Menu</a>
                 <a href="#kontak" class="btn btn-secondary">Pesan Sekarang</a>
@@ -137,59 +119,38 @@
     <!-- Menu Section -->
     <section class="menu" id="menu">
         <div class="container">
-            <h2 class="section-title fade-in">Menu Spesial Kami</h2>
+            <h2 class="section-title fade-in">Menu Coffee Spesial Kami</h2>
             <p class="section-subtitle fade-in">Nikmati berbagai varian coffee specialty dengan kualitas premium dan cita rasa yang tak terlupakan</p>
             
             <div class="menu-grid">
-                <!-- Choco Milk Coffee -->
                 <div class="menu-item fade-in">
                     <div class="menu-item-image">
-                        <div class="image-container">
-                            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Choco Milk Coffee">
-                        </div>
+                        <img src="choco-milk.jpg" alt="Choco Milk Coffee" onerror="this.src='https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
                     </div>
-                    <div class="menu-item-content">
-                        <h3>Choco Milk Coffee</h3>
-                        <div class="price">Rp 22.000</div>
-                        <p>Perpaduan sempurna antara kopi robusta pilihan dengan coklat premium dan susu segar. Rasa manis coklat yang harmonis dengan bitterness kopi yang pas.</p>
-                        <button class="btn btn-primary add-to-cart" data-name="Choco Milk Coffee" data-price="22000">
-                            <i class="fas fa-plus"></i> Tambah ke Keranjang
-                        </button>
-                    </div>
+                    <h3>Choco Milk Coffee</h3>
+                    <div class="price">Rp 22.000</div>
+                    <p>Perpaduan sempurna antara kopi premium dengan cokelat yang creamy dan susu lembut. Cocok untuk pecinta kopi dengan sentuhan manis yang pas.</p>
+                    <button class="btn btn-primary add-to-cart" data-name="Choco Milk Coffee" data-price="22000">Tambah ke Keranjang</button>
                 </div>
 
-                <!-- Machalatte -->
                 <div class="menu-item fade-in">
                     <div class="menu-item-image">
-                        <div class="image-container">
-                            <img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Machalatte">
-                        </div>
+                        <img src="matchalatte.jpg" alt="Matchalatte" onerror="this.src='https://images.unsplash.com/photo-1515823064-d6e0c04616a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
                     </div>
-                    <div class="menu-item-content">
-                        <h3>Machalatte</h3>
-                        <div class="price">Rp 25.000</div>
-                        <p>Green tea matcha authentic dicampur dengan espresso dan susu steamed. Kombinasi unik antara earthy matcha dan rich coffee dengan lapisan foam yang lembut.</p>
-                        <button class="btn btn-primary add-to-cart" data-name="Machalatte" data-price="25000">
-                            <i class="fas fa-plus"></i> Tambah ke Keranjang
-                        </button>
-                    </div>
+                    <h3>Matchalatte</h3>
+                    <div class="price">Rp 25.000</div>
+                    <p>Matcha premium Jepang yang diseduh dengan susu steamed creamy. Kombinasi sempurna antara rasa earthy matcha dan manisnya susu.</p>
+                    <button class="btn btn-primary add-to-cart" data-name="Matchalatte" data-price="25000">Tambah ke Keranjang</button>
                 </div>
 
-                <!-- Coffee Gula Aren -->
                 <div class="menu-item fade-in">
                     <div class="menu-item-image">
-                        <div class="image-container">
-                            <img src="https://images.unsplash.com/photo-1534687941688-651ccaafbff8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Coffee Gula Aren">
-                        </div>
+                        <img src="latte-aren.jpg" alt="Coffee Latte Gula Aren" onerror="this.src='https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
                     </div>
-                    <div class="menu-item-content">
-                        <h3>Coffee Gula Aren</h3>
-                        <div class="price">Rp 20.000</div>
-                        <p>Kopi tradisional dengan sentuhan modern menggunakan gula aren asli. Rasa caramel alami dari gula aren menyatu sempurna dengan karakter kopi lokal.</p>
-                        <button class="btn btn-primary add-to-cart" data-name="Coffee Gula Aren" data-price="20000">
-                            <i class="fas fa-plus"></i> Tambah ke Keranjang
-                        </button>
-                    </div>
+                    <h3>Coffee Latte Gula Aren</h3>
+                    <div class="price">Rp 23.000</div>
+                    <p>Kopi latte dengan gula aren asli yang memberikan rasa karamel alami. Kombinasi unik yang memberikan sensasi manis yang natural dan nikmat.</p>
+                    <button class="btn btn-primary add-to-cart" data-name="Coffee Latte Gula Aren" data-price="23000">Tambah ke Keranjang</button>
                 </div>
             </div>
         </div>
@@ -205,9 +166,7 @@
                 <div class="testimonial fade-in">
                     <div class="testimonial-header">
                         <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
+                            <div class="author-initial">B</div>
                             <div class="author-info">
                                 <span class="author-name">Budi Santoso</span>
                                 <div class="stars">★★★★★</div>
@@ -215,16 +174,14 @@
                         </div>
                     </div>
                     <div class="testimonial-content">
-                        Choco Milk Coffee favorit saya! Perpaduan coklat dan kopinya pas banget, nggak terlalu manis tapi tetap creamy. Bikin nagih!
+                        Matchalatte-nya benar-benar luar biasa! Rasa matcha yang autentik dan creamy banget. Jadi tempat favorit saya untuk ngopi.
                     </div>
                 </div>
 
                 <div class="testimonial fade-in">
                     <div class="testimonial-header">
                         <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
+                            <div class="author-initial">A</div>
                             <div class="author-info">
                                 <span class="author-name">Ani Wijaya</span>
                                 <div class="stars">★★★★★</div>
@@ -232,16 +189,14 @@
                         </div>
                     </div>
                     <div class="testimonial-content">
-                        Machalatte-nya unik banget! Matcha dan kopi biasanya bertabrakan, tapi di sini justru harmonis. Recomended buat yang suka eksperimen rasa.
+                        Choco Milk Coffee selalu jadi pilihan utama. Perpaduan kopi dan cokelatnya pas banget, nggak terlalu manis. Pelayanan ramah dan suasana cozy!
                     </div>
                 </div>
 
                 <div class="testimonial fade-in">
                     <div class="testimonial-header">
                         <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
+                            <div class="author-initial">C</div>
                             <div class="author-info">
                                 <span class="author-name">Citra Dewi</span>
                                 <div class="stars">★★★★★</div>
@@ -249,16 +204,14 @@
                         </div>
                     </div>
                     <div class="testimonial-content">
-                        Coffee Gula Aren-nya autentik banget! Gula aren asli, bukan sirup. Rasanya natural dan ngingetin sama kopi tradisional tapi dengan teknik modern.
+                        Coffee Latte Gula Aren-nya sangat unik! Rasa gula arennya natural banget, nggak terlalu manis. Harga juga reasonable untuk kualitas premium.
                     </div>
                 </div>
 
                 <div class="testimonial fade-in">
                     <div class="testimonial-header">
                         <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
+                            <div class="author-initial">D</div>
                             <div class="author-info">
                                 <span class="author-name">Doni Prasetyo</span>
                                 <div class="stars">★★★★★</div>
@@ -266,7 +219,7 @@
                         </div>
                     </div>
                     <div class="testimonial-content">
-                        Udah coba semua menu, semuanya enak! Tapi Machalatte yang paling bikin penasaran. Green tea dan coffee combo yang jarang ditemukan di tempat lain.
+                        Barista yang handal! Matchalatte-nya creamy dan matchanya terasa banget. Highly recommended untuk matcha lovers sejati.
                     </div>
                 </div>
             </div>
@@ -348,6 +301,9 @@
                                 <span>Guru / Fir</span>
                             </div>
                         </div>
+                        <div class="copyright">
+                            <p>©2025 · ★Ress★</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -357,40 +313,10 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <i class="fas fa-coffee"></i>
-                        <h3>Ceket Coffee</h3>
-                    </div>
-                    <p>Menyeduh kebahagiaan dalam setiap cangkir sejak 2025</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Menu</h4>
-                        <a href="#menu">Choco Milk Coffee</a>
-                        <a href="#menu">Machalatte</a>
-                        <a href="#menu">Coffee Gula Aren</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Navigasi</h4>
-                        <a href="#beranda">Beranda</a>
-                        <a href="#menu">Menu</a>
-                        <a href="#testimoni">Testimoni</a>
-                        <a href="#kontak">Kontak</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Kontak</h4>
-                        <a href="https://wa.me/6281287358494" target="_blank">WhatsApp</a>
-                        <a href="mailto:cekettcoffee@gmail.com">Email</a>
-                        <a href="#kontak">Lokasi</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Ceket Coffee. Semua Hak Dilindungi.</p>
-                <p>Dibuat dengan ❤️ untuk pecinta coffee specialty di seluruh Indonesia</p>
-            </div>
+            <p>&copy; 2025 Ceket Coffee. Semua Hak Dilindungi.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--dark-cream);">
+                Dibuat dengan ❤️ untuk pecinta coffee specialty di seluruh Indonesia
+            </p>
         </div>
     </footer>
 
