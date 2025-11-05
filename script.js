@@ -1,104 +1,188 @@
-// DOM Elements
-const loadingScreen = document.getElementById('loading-screen');
-const notification = document.getElementById('notification');
-const notificationClose = document.getElementById('notification-close');
+// script.js
+// Smooth scrolling untuk navigasi
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// Observe semua elemen dengan class fade-in
+document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+});
+
+// Header scroll effect
+let lastScrollTop = 0;
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+        header.style.transform = 'translateY(-100%)';
+    } else {
+        header.style.transform = 'translateY(0)';
+    }
+    lastScrollTop = scrollTop;
+});
+
+// Mobile sidebar functionality
 const hamburger = document.getElementById('hamburger');
 const sidebar = document.getElementById('sidebar');
 const sidebarClose = document.getElementById('sidebar-close');
 const overlay = document.getElementById('overlay');
-const cartIcon = document.getElementById('cart-icon');
-const sidebarCartBtn = document.getElementById('sidebar-cart-btn');
-const cartSidebar = document.getElementById('cart-sidebar');
-const cartClose = document.getElementById('cart-close');
-const cartItems = document.getElementById('cart-items');
-const emptyCart = document.getElementById('empty-cart');
-const cartTotalPrice = document.getElementById('cart-total-price');
-const checkoutBtn = document.getElementById('checkout-btn');
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
-const cartCount = document.querySelectorAll('.cart-count');
 
-// Cart Data
-let cart = [];
-
-// Initialize
-document.addEventListener('DOMContentLoaded', function() {
-    // Hide loading screen
-    setTimeout(() => {
-        loadingScreen.classList.add('hidden');
-    }, 2000);
-    
-    // Show notification
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 2500);
-    
-    // Initialize animations
-    initAnimations();
-    
-    // Load cart from localStorage
-    loadCart();
-    
-    // Update cart display
-    updateCart();
-});
-
-// Notification Close
-notificationClose.addEventListener('click', function() {
-    notification.classList.remove('show');
-});
-
-// Mobile Menu Toggle
-hamburger.addEventListener('click', function() {
+hamburger.addEventListener('click', () => {
     sidebar.classList.add('open');
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
 });
 
-sidebarClose.addEventListener('click', function() {
+sidebarClose.addEventListener('click', () => {
     sidebar.classList.remove('open');
     overlay.classList.remove('active');
     document.body.style.overflow = '';
 });
 
-overlay.addEventListener('click', function() {
+overlay.addEventListener('click', () => {
     sidebar.classList.remove('open');
     cartSidebar.classList.remove('open');
     overlay.classList.remove('active');
     document.body.style.overflow = '';
 });
 
-// Cart Toggle
-cartIcon.addEventListener('click', function(e) {
+// Notification functionality
+const notification = document.getElementById('notification');
+const notificationClose = document.getElementById('notification-close');
+
+// Tampilkan notifikasi setelah 1 detik
+setTimeout(() => {
+    notification.classList.add('show');
+}, 1000);
+
+notificationClose.addEventListener('click', () => {
+    notification.classList.remove('show');
+});
+
+// Auto-hide notifikasi setelah 5 detik
+setTimeout(() => {
+    if (notification.classList.contains('show')) {
+        notification.classList.remove('show');
+    }
+}, 5000);
+
+// Animasi untuk menu item saat hover
+document.querySelectorAll('.menu-item').forEach(item => {
+    item.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+// Animasi untuk tombol
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px)';
+    });
+    
+    btn.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+    });
+});
+
+// Animasi scroll untuk hero section
+const heroScroll = document.querySelector('.hero-scroll');
+heroScroll.addEventListener('click', () => {
+    document.querySelector('#menu').scrollIntoView({
+        behavior: 'smooth'
+    });
+});
+
+// Parallax effect untuk hero section
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero');
+    hero.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+});
+
+// Loading animation
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});
+
+// Cart functionality
+let cart = [];
+const cartIcon = document.getElementById('cart-icon');
+const cartSidebar = document.getElementById('cart-sidebar');
+const cartClose = document.getElementById('cart-close');
+const cartItems = document.getElementById('cart-items');
+const cartTotalPrice = document.getElementById('cart-total-price');
+const checkoutBtn = document.getElementById('checkout-btn');
+const emptyCart = document.getElementById('empty-cart');
+const sidebarCartBtn = document.getElementById('sidebar-cart-btn');
+
+// Toggle cart sidebar
+cartIcon.addEventListener('click', (e) => {
     e.preventDefault();
     cartSidebar.classList.add('open');
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
 });
 
-sidebarCartBtn.addEventListener('click', function(e) {
+sidebarCartBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    cartSidebar.classList.add('open');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
     sidebar.classList.remove('open');
-    cartSidebar.classList.add('open');
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
 });
 
-cartClose.addEventListener('click', function() {
+cartClose.addEventListener('click', () => {
     cartSidebar.classList.remove('open');
     overlay.classList.remove('active');
     document.body.style.overflow = '';
 });
 
-// Add to Cart
-addToCartButtons.forEach(button => {
+// Add to cart functionality
+document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function() {
-        const name = this.dataset.name;
-        const price = parseInt(this.dataset.price);
+        const name = this.getAttribute('data-name');
+        const price = parseInt(this.getAttribute('data-price'));
         
         addToCart(name, price);
         
-        // Show feedback
-        showAddToCartFeedback(this);
+        // Show success feedback
+        const originalText = this.textContent;
+        this.textContent = '✓ Ditambahkan!';
+        this.style.background = 'var(--light-brown)';
+        
+        setTimeout(() => {
+            this.textContent = originalText;
+            this.style.background = '';
+        }, 1500);
     });
 });
 
@@ -106,284 +190,131 @@ function addToCart(name, price) {
     const existingItem = cart.find(item => item.name === name);
     
     if (existingItem) {
-        existingItem.quantity++;
+        existingItem.quantity += 1;
     } else {
         cart.push({
-            name,
-            price,
+            name: name,
+            price: price,
             quantity: 1
         });
     }
     
-    // Save to localStorage
-    saveCart();
-    
-    // Update cart display
     updateCart();
-    
-    // Show notification
-    showNotification(`${name} berhasil ditambahkan ke keranjang!`);
 }
 
-function showAddToCartFeedback(button) {
-    const originalText = button.innerHTML;
-    button.innerHTML = '<i class="fas fa-check"></i> Ditambahkan';
-    button.style.background = '#4CAF50';
-    
-    setTimeout(() => {
-        button.innerHTML = originalText;
-        button.style.background = '';
-    }, 2000);
+function removeFromCart(name) {
+    cart = cart.filter(item => item.name !== name);
+    updateCart();
 }
 
-function showNotification(message) {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = 'toast-notification';
-    notification.innerHTML = `
-        <div class="toast-content">
-            <i class="fas fa-check-circle"></i>
-            <span>${message}</span>
-        </div>
-    `;
+function updateQuantity(name, change) {
+    const item = cart.find(item => item.name === name);
     
-    // Add styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: #4CAF50;
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        z-index: 1002;
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
-        max-width: 300px;
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Remove after delay
-    setTimeout(() => {
-        notification.style.transform = 'translateX(400px)';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 3000);
+    if (item) {
+        item.quantity += change;
+        
+        if (item.quantity <= 0) {
+            removeFromCart(name);
+        } else {
+            updateCart();
+        }
+    }
 }
 
-// Update Cart
 function updateCart() {
     // Update cart count
-    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-    cartCount.forEach(element => {
-        element.textContent = totalItems;
+    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+    document.querySelectorAll('.cart-count').forEach(el => {
+        el.textContent = cartCount;
     });
     
     // Update cart items
+    cartItems.innerHTML = '';
+    
     if (cart.length === 0) {
-        emptyCart.style.display = 'block';
-        cartItems.innerHTML = '';
         cartItems.appendChild(emptyCart);
+        emptyCart.style.display = 'block';
     } else {
         emptyCart.style.display = 'none';
         
-        let cartHTML = '';
-        let totalPrice = 0;
-        
-        cart.forEach((item, index) => {
-            const itemTotal = item.price * item.quantity;
-            totalPrice += itemTotal;
-            
-            cartHTML += `
-                <div class="cart-item">
-                    <div class="cart-item-image">
-                        <img src="${getItemImage(item.name)}" alt="${item.name}">
-                    </div>
-                    <div class="cart-item-details">
-                        <div class="cart-item-name">${item.name}</div>
-                        <div class="cart-item-price">Rp ${item.price.toLocaleString()}</div>
-                    </div>
-                    <div class="cart-item-controls">
-                        <button class="quantity-btn decrease" data-index="${index}">-</button>
-                        <span class="cart-item-quantity">${item.quantity}</span>
-                        <button class="quantity-btn increase" data-index="${index}">+</button>
-                        <button class="remove-item" data-index="${index}">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
+        cart.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = `
+                <div class="cart-item-image">
+                    <img src="${getItemImage(item.name)}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+                </div>
+                <div class="cart-item-details">
+                    <div class="cart-item-name">${item.name}</div>
+                    <div class="cart-item-price">Rp ${item.price.toLocaleString()}</div>
+                </div>
+                <div class="cart-item-controls">
+                    <button class="quantity-btn minus" data-name="${item.name}">-</button>
+                    <span class="cart-item-quantity">${item.quantity}</span>
+                    <button class="quantity-btn plus" data-name="${item.name}">+</button>
+                    <button class="remove-item" data-name="${item.name}">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 </div>
             `;
+            cartItems.appendChild(cartItem);
         });
         
-        cartItems.innerHTML = cartHTML;
-        cartTotalPrice.textContent = `Rp ${totalPrice.toLocaleString()}`;
-        
-        // Add event listeners to cart controls
-        document.querySelectorAll('.decrease').forEach(button => {
-            button.addEventListener('click', function() {
-                const index = parseInt(this.dataset.index);
-                decreaseQuantity(index);
+        // Add event listeners to new buttons
+        document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+            btn.addEventListener('click', function() {
+                updateQuantity(this.getAttribute('data-name'), -1);
             });
         });
         
-        document.querySelectorAll('.increase').forEach(button => {
-            button.addEventListener('click', function() {
-                const index = parseInt(this.dataset.index);
-                increaseQuantity(index);
+        document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+            btn.addEventListener('click', function() {
+                updateQuantity(this.getAttribute('data-name'), 1);
             });
         });
         
-        document.querySelectorAll('.remove-item').forEach(button => {
-            button.addEventListener('click', function() {
-                const index = parseInt(this.dataset.index);
-                removeFromCart(index);
+        document.querySelectorAll('.remove-item').forEach(btn => {
+            btn.addEventListener('click', function() {
+                removeFromCart(this.getAttribute('data-name'));
             });
         });
     }
+    
+    // Update total price
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    cartTotalPrice.textContent = `Rp ${total.toLocaleString()}`;
 }
 
 function getItemImage(name) {
     const imageMap = {
-        'Choco Milk Coffee': 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-        'Machalatte': 'https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-        'Coffee Gula Aren': 'https://images.unsplash.com/photo-1534687941688-651ccaafbff8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
+        'Choco Milk Coffee': 'choco-milk.jpg',
+        'Matchalatte': 'matchalatte.jpg',
+        'Coffee Latte Gula Aren': 'latte-aren.jpg'
     };
     
-    return imageMap[name] || 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80';
+    return imageMap[name] || 'coffe.jpg';
 }
 
-function decreaseQuantity(index) {
-    if (cart[index].quantity > 1) {
-        cart[index].quantity--;
-    } else {
-        cart.splice(index, 1);
-    }
-    
-    saveCart();
-    updateCart();
-}
-
-function increaseQuantity(index) {
-    cart[index].quantity++;
-    saveCart();
-    updateCart();
-}
-
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    saveCart();
-    updateCart();
-}
-
-// Checkout
-checkoutBtn.addEventListener('click', function() {
+// Checkout functionality
+checkoutBtn.addEventListener('click', () => {
     if (cart.length === 0) {
-        showNotification('Keranjang masih kosong!');
+        alert('Keranjang masih kosong!');
         return;
     }
     
-    let message = 'Halo! Saya ingin memesan kopi dari Ceket Coffee:\n\n';
-    let total = 0;
+    let message = 'Halo! Saya ingin memesan:\n\n';
     
     cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
-        message += `- ${item.name} (${item.quantity}x) - Rp ${itemTotal.toLocaleString()}\n`;
+        message += `• ${item.name} (${item.quantity}x) - Rp ${(item.price * item.quantity).toLocaleString()}\n`;
     });
     
-    message += `\nTotal: Rp ${total.toLocaleString()}`;
-    message += `\n\nSaya ingin memesan ini. Terima kasih!`;
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    message += `\nTotal: Rp ${total.toLocaleString()}\n\n`;
+    message += 'Bisa tolong konfirmasi ketersediaan dan cara pembayarannya? Terima kasih!';
     
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/6281287358494?text=${encodedMessage}`;
-    
-    window.open(whatsappURL, '_blank');
+    const whatsappUrl = `https://wa.me/6285159092232?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
 });
 
-// Local Storage
-function saveCart() {
-    localStorage.setItem('ceketCoffeeCart', JSON.stringify(cart));
-}
-
-function loadCart() {
-    const savedCart = localStorage.getItem('ceketCoffeeCart');
-    if (savedCart) {
-        cart = JSON.parse(savedCart);
-    }
-}
-
-// Animations
-function initAnimations() {
-    // Fade in elements on scroll
-    const fadeElements = document.querySelectorAll('.fade-in');
-    
-    const fadeInOnScroll = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-    
-    fadeElements.forEach(element => {
-        fadeInOnScroll.observe(element);
-    });
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Close mobile menu if open
-                sidebar.classList.remove('open');
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-                
-                // Scroll to target
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(139, 69, 19, 0.95)';
-            header.style.backdropFilter = 'blur(10px)';
-        } else {
-            header.style.background = 'linear-gradient(135deg, var(--primary-brown) 0%, var(--light-brown) 100%)';
-            header.style.backdropFilter = 'blur(10px)';
-        }
-    });
-}
-
-// Add some interactive effects to menu items
-document.querySelectorAll('.menu-item').forEach(item => {
-    item.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px)';
-    });
-    
-    item.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
-});
+// Initialize cart
+updateCart();
