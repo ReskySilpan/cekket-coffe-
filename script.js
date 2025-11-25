@@ -289,7 +289,7 @@ function getItemImage(name) {
     const imageMap = {
         'Choco Milk Coffee': 'choco-milk.jpg',
         'Matchalatte': 'matchalatte.jpg',
-        'Coffee Latte Gula Aren': 'latte-aren.jpg'
+        'Milo Caffe': 'milo-caffe.jpg'
     };
     
     return imageMap[name] || 'coffe.jpg';
