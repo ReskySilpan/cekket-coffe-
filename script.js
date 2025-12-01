@@ -312,7 +312,7 @@ checkoutBtn.addEventListener('click', () => {
     message += `\nTotal: Rp ${total.toLocaleString()}\n\n`;
     message += 'Bisa tolong konfirmasi ketersediaan dan cara pembayarannya? Terima kasih!';
     
-    const whatsappUrl = `https://wa.me/6285159092232?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/6285122014507?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 });
 
