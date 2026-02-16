@@ -287,9 +287,9 @@ function updateCart() {
 
 function getItemImage(name) {
     const imageMap = {
-        'Cappucino Ice': 'choco-milk.jpg',
-        'Matcha Latte': 'matchalatte.jpg',
-        'Milo Caffe': 'milo-caffe.jpg'
+        'Cappucino Ice': 'ice.jpg',
+        'Matcha Latte': 'matcha.jpg',
+        'Milo Caffe': 'milo.jpg'
     };
     
     return imageMap[name] || 'coffe.jpg';
